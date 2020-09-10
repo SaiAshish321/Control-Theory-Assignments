@@ -1,0 +1,108 @@
+\documentclass{article}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{parskip}
+\usepackage{graphicx}
+
+% Margins
+\usepackage[top=2.5cm, left=3cm, right=3cm, bottom=4.0cm]{geometry}
+% Colour table cells
+\usepackage[table]{xcolor}
+
+% Get larger line spacing in table
+\newcommand{\tablespace}{\\[1.25mm]}
+\newcommand\Tstrut{\rule{0pt}{2.6ex}}         % = `top' strut
+\newcommand\tstrut{\rule{0pt}{2.0ex}}         % = `top' strut
+\newcommand\Bstrut{\rule[-0.9ex]{0pt}{0pt}}   % = `bottom' strut
+
+%%%%%%%%%%%%%%%%%
+%     Title     %
+%%%%%%%%%%%%%%%%%
+\title{EE2101 Assignment 1}
+\author{Sai Ashish Jana \\ EE19BTECH11052}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+%%%%%%%%%%%%%%%%%
+%   Problem 1   %
+%%%%%%%%%%%%%%%%%
+\section{Problem Statement (54)}
+Consider the restaurant plate dispenser shown in
+Figure P2.34, which consists of a vertical stack of
+dishes supported by a compressed spring. As each
+plate is removed, the reduced weight on the
+dispenser causes the remaining plates to rise.
+Assume that the mass of the system minus the
+top plate is M, the viscous friction between
+the piston and the sides of the cylinder is /„,
+the spring constant is K, and the weight of a
+single plate is Wn. Find the transfer function,
+Y(s)/F(s), where F(s) is the step reduction in
+force felt when the top plate is removed, and
+Y(s) is the vertical displacement of the dispenser
+in an upward direction. \\
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=1]{54.png}
+\end{figure}
+\newpage
+\section{Solution}
+\item As our objective is finding the transfer function of the above problem, let us first find F(s).\\
+\itemby It is given that the weight of each plate is Wn, thus the step reduction force on removing the top plate will simply be the weight of the plate, Wn.\\
+If we consider that at time t=0, the top plate is removed.\\
+Then F(t) can be written as :=
+\begin{align}
+    \label{eq:example_equation} % Equation label; can be used for referencing
+    F(t) = Wn . u(t) \,.
+\end{align}\\
+Here, u(t) is the unit step function.\\\\
+Thus, F(s) will be simply be the laplace transform of F(t).\\ We know that laplace transform of u(t)=1/s,  therefore :=
+\begin{align}
+    \label{eq:example_equation} % Equation label; can be used for referencing
+    F(s) = Wn/s \,.
+\end{align}
+Now, let us consider equilibrium conditions before removal of the top plate.\\
+Gravitational force is balanced by the force due to the compression of string.
+\begin{align}
+    \label{eq:example_equation} % Equation label; can be used for referencing
+   Mg+Wn=kY \,.
+\end{align}\\
+Here, Y is the initial compression of spring and k is the spring constant.\\\\
+Let us now consider force equation at the instant when the top plate is removed:=\\
+\begin{align}
+    \label{eq:example_equation} % Equation label; can be used for referencing
+    k(Y-Y(t))-(Mg+f_{viscous}v)=Ma\,.
+\end{align}\\
+Here, 'v' is velocity and 'a' is acceleration both taken with sign convention upwards as positive. \\'f' is the friction coefficient. \\
+Substituting equation (3) in (4):=\\
+\begin{align}
+    \label{eq:example_equation} % Equation label; can be used for referencing
+    Wn-kY(t)-f_{viscous}v=Ma\,.
+\end{align}\\
+Rewriting 'v' and 'a' as differentials of displacement\\
+\begin{align}
+    \label{eq:example_equation} % Equation label; can be used for referencing
+    Wn-kY(t)-f_{viscous}\frac{dy}{dt}=M\frac{d^2 y}{dt^2}\,.
+\end{align}\\
+Taking the laplace transform of the above equation,\\
+\begin{align}
+    \label{eq:example_equation} % Equation label; can be used for referencing
+    Wn/s-kY(s)-f_{viscous}sY(s)=Ms^{2}Y(s)\,.
+\end{align}\\
+Substituting Wn/s as F(s) and rewriting the above equation:=//
+\begin{align}
+    \label{eq:example_equation} % Equation label; can be used for referencing
+    F(s)=Y(s)(k+f_{viscous}s+Ms^{2})\,.
+\end{align}\\
+Hence, the transfer function T(s) is:=
+\begin{align}
+    \label{eq:example_equation} % Equation label; can be used for referencing
+    T(s)= \frac{Y(s)}{F(s)}=\frac{1}{k+f_{viscous}s+Ms^{2}}\,.
+\end{align}\\
+
+
+\end{document}
